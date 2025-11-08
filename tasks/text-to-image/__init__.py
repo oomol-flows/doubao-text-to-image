@@ -4,10 +4,13 @@ class Inputs(typing.TypedDict):
     prompt: str
 class Outputs(typing.TypedDict):
     image_url: typing.NotRequired[str]
+    image_path: typing.NotRequired[str]
 #endregion
 
 from oocana import Context
 import requests
+import os
+from datetime import datetime
 
 async def main(params: Inputs, context: Context) -> Outputs:
     """
@@ -18,7 +21,7 @@ async def main(params: Inputs, context: Context) -> Outputs:
         context: OOMOL context object
 
     Returns:
-        Dictionary containing image_url
+        Dictionary containing image_url and image_path
     """
 
     prompt = params["prompt"]
@@ -59,14 +62,32 @@ async def main(params: Inputs, context: Context) -> Outputs:
         else:
             raise ValueError(f"Unexpected API response format: {result}")
 
-        # Preview the generated image
+        # Download the image
+        image_response = requests.get(image_url)
+        image_response.raise_for_status()
+
+        # Create output directory if it doesn't exist
+        output_dir = "/oomol-driver/oomol-storage/text-to-image"
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Generate unique filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        image_filename = f"generated_{timestamp}.jpeg"
+        image_path = os.path.join(output_dir, image_filename)
+
+        # Save image to local file
+        with open(image_path, "wb") as f:
+            f.write(image_response.content)
+
+        # Preview the generated image using local file path
         context.preview({
             "type": "image",
-            "data": image_url
+            "data": f"file://{image_path}"
         })
 
         return {
-            "image_url": image_url
+            "image_url": image_url,
+            "image_path": image_path
         }
 
     except requests.exceptions.RequestException as e:

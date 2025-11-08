@@ -12,6 +12,11 @@ outputs_def:
     json_schema:
       type: string
 
+  - handle: image_path
+    description: "Local file path of the downloaded image"
+    json_schema:
+      type: string
+
 executor:
   name: python
   options:
