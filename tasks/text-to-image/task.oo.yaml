@@ -1,0 +1,23 @@
+inputs_def:
+  - handle: prompt
+    description: "Text prompt describing the image to generate"
+    json_schema:
+      type: string
+      ui:widget: text
+    nullable: false
+
+outputs_def:
+  - handle: image_url
+    description: "URL of the generated image"
+    json_schema:
+      type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Text to Image"
+icon: ":carbon:image:"
+description: "Generate images from text descriptions using Doubao text-to-image API"

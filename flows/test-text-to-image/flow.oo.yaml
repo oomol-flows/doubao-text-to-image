@@ -1,0 +1,8 @@
+title: Test Text to Image
+
+nodes:
+  - node_id: text-to-image#1
+    task: self::text-to-image
+    inputs_from:
+      - handle: prompt
+        value: "a cute cat lying on a bed, looking at the camera"
