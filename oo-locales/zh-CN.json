@@ -1,0 +1,10 @@
+{
+  "display-name": "豆包 文本转图片",
+  "description": "使用 豆包 AI 根据文本描述生成高质量图片，支持自动存储和实时预览。",
+  "test-text-to-image": "测试 文本 转 图片",
+  "text-to-image": "文本转图片",
+  "generate-images-from-text-descriptions-using-doubao-text-to-imag": "使用 豆包 文本生成图像 API，根据文本描述生成图像。",
+  "text-prompt-describing-the-image-to-generate": "用于生成图像的文本提示",
+  "url-of-the-generated-image": "生成图像的 URL",
+  "local-file-path-of-the-downloaded-image": "已下载图片的本地文件路径"
+}

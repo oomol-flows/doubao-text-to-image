@@ -1,0 +1,10 @@
+{
+  "display-name": "Doubao Text To Image",
+  "description": "Generate high-quality images from text descriptions using Doubao AI with automatic storage and real-time preview.",
+  "test-text-to-image": "Test Text to Image",
+  "text-to-image": "Text to Image",
+  "generate-images-from-text-descriptions-using-doubao-text-to-imag": "Generate images from text descriptions using Doubao text-to-image API",
+  "text-prompt-describing-the-image-to-generate": "Text prompt describing the image to generate",
+  "url-of-the-generated-image": "URL of the generated image",
+  "local-file-path-of-the-downloaded-image": "Local file path of the downloaded image"
+}
