@@ -1,7 +1,7 @@
 name: doubao_text_to_image
 displayName: "%display-name%"
 description: "%description%"
-version: 0.0.1
+version: 0.0.2
 scripts:
   bootstrap: |
     npm install
